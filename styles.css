@@ -161,68 +161,81 @@ body {
 }
 
 .contact .contacts_list {
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Равномерное распределение карточек */
+    gap: 20px; /* Отступы между карточками */
+    padding: 0;
+    list-style: none; /* Убираем белые точки */
 }
 
 .contact .contacts_card {
-    display: inline-block;
-    list-style: 0;
-    width: 410px;
-    height: 400px;
+    flex: 1 1 calc(33.33% - 20px); /* Карточки занимают треть строки */
+    max-width: calc(33.33% - 20px); 
+    min-width: 250px; 
     background-color: #4A4A4A;
-    margin-right: 50px;
-    border-radius: 10px;
-}
-
-.contact .contacts_card h3 {
-    text-align: center;
-    padding-top: 10px;
-}
-
-.contact .contacts_card h3 {
-    text-align: center;
-    color: #4caf50;
-}
-.contact .contacts_card h4 {
-    text-align: center;
-    color: #2F6B31;
-}
-
-.contacts_card .contacts_card_main_info {
-    margin-top: 10px;
-} 
-
-.contacts_card .contacts_card_list {
-    display: inline-block;
-    margin-left: 10px;
-    list-style: none;
-    vertical-align: top;
-    color: #4caf50;
-}
-
-.contacts_card .contacts_card_list li{
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    border: 1px solid #46A049;
-    /* background-color: #555; */
-    margin-bottom: 5px;
-    padding: 5px;
-}
-
-.contacts_card .contacts_card_list a {
-    font-size: medium;
+    padding: 10px;
+    text-align: center;
 }
 
 .contacts_card .contact_card_img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover; /* или `contain`, если хотите сохранить пропорции */
-    /* border: 40px solid #555;
-    border-radius: 10px; закругление углов изображения */
+    width: 150px; /* Размер фото */
+    height: 150px; /* Квадратная форма */
+    object-fit: cover; /* Заполняет квадрат без искажения */
+    border-radius: 10px; /* Закруглённые углы */
+    border: 4px solid #4caf50; /* Добавлена зелёная рамка */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5); /* Тень вокруг */
+    margin: 10px auto;
+    transition: transform 0.2s ease-in-out; /* Анимация увеличения */
+}
+
+.contacts_card:hover .contact_card_img {
+    transform: scale(1.1); /* Увеличиваем изображение при наведении */
+}
+
+.contact .contacts_card {
+    flex: 1 1 calc(33.33% - 20px); /* Карточки занимают треть строки */
+    max-width: calc(33.33% - 20px); 
+    min-width: 250px; 
+    background-color: #4A4A4A;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-    border: 2px solid #555;
-    margin-left: 20px;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out; /* Анимация увеличения */
 }
+
+.contact .contacts_card:hover {
+    transform: scale(1.05); /* Увеличиваем карточку при наведении */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.6); /* Увеличиваем тень при наведении */
+}
+
+
+.contacts_card h3 {
+    margin: 10px 0 15px; /* Увеличен отступ снизу */
+    font-size: 1.2rem;
+    color: #4caf50;
+}
+
+.contacts_card h4 {
+    display: none; /* Полное удаление надписи "Норм тип" */
+}
+
+.contacts_card .contacts_card_list {
+    list-style: none; /* Убираем маркеры внутри списка */
+    padding: 10px;
+    margin: 10px auto;
+    background: rgba(0, 0, 0, 0.3); /* Полупрозрачная подложка */
+    border-radius: 8px; /* Закругленные углы */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4); /* Тень подложки */
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+
+.contacts_card .contacts_card_list li {
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
